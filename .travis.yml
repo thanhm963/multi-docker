@@ -8,12 +8,12 @@ script:
   - docker run thanhma/react-test npm test --coverage
 
 after_success:
-  - docker build -t thanhma/multi-client ./client
-  - docker build -t thanhma/multi-nginx ./nginx
-  - docker build -t thanhma/multi-server ./server
-  - docker build -t thanhma/multi-worker ./worker
+  - docker build -t thanhma791/multi-client ./client
+  - docker build -t thanhma791/multi-nginx ./nginx
+  - docker build -t thanhma791/multi-server ./server
+  - docker build -t thanhma791/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push thanhma/multi-client
-  - docker push thanhma/multi-nginx
-  - docker push thanhma/multi-server
-  - docker push thanhma/multi-worker
+  - docker push thanhma791/multi-client
+  - docker push thanhma791/multi-nginx
+  - docker push thanhma791/multi-server
+  - docker push thanhma791/multi-worker
