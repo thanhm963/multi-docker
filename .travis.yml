@@ -1,0 +1,14 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t thanhma/react-test -f ./client/Dockerfile.dev ./client
+script:
+  - docker run thanhma/react-test npm test --coverage
+
+after_success:
+  - docker build -t thanhma/multi-client ./client
+  - docker build -t thanhma/multi-nginx ./nginx
+  - docker build -t thanhma/multi-server ./server
+  - docker build -t thanhma/multi-worker ./worker
