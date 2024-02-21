@@ -12,3 +12,8 @@ after_success:
   - docker build -t thanhma/multi-nginx ./nginx
   - docker build -t thanhma/multi-server ./server
   - docker build -t thanhma/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push thanhma/multi-client
+  - docker push thanhma/multi-nginx
+  - docker push thanhma/multi-server
+  - docker push thanhma/multi-worker
