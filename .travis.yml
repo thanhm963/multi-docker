@@ -12,7 +12,7 @@ after_success:
   - docker build -t thanhma791/multi-nginx ./nginx
   - docker build -t thanhma791/multi-server ./server
   - docker build -t thanhma791/multi-worker ./worker
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin docker.io
   - docker push thanhma791/multi-client
   - docker push thanhma791/multi-nginx
   - docker push thanhma791/multi-server
