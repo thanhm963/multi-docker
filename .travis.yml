@@ -8,7 +8,7 @@ script:
   - docker run thanhma/react-test npm test --coverage
 
 after_success:
-  - docker b_uild -t thanhma791/multi-client ./client
+  - docker build -t thanhma791/multi-client ./client
   - docker build -t thanhma791/multi-nginx ./nginx
   - docker build -t thanhma791/multi-server ./server
   - docker build -t thanhma791/multi-worker ./worker
